@@ -6,7 +6,7 @@
 trigger:
   branches:
     include:
-    - master
+    - *
   paths:
     include:
     - gated-checkin/*
@@ -16,7 +16,7 @@ trigger:
 pr: none
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Test
 
 variables:
   buildConfiguration: 'Release'
@@ -61,6 +61,3 @@ steps:
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml  
-
-- script: echo Some steps to create artifacts!
-  displayName: 'Run a one-line script'
